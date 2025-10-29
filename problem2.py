@@ -217,8 +217,13 @@ def calculate_grades_average(students):
     # TODO: Implement this function
     # For each student, calculate average of their grades
     # Hint: sum(grades) / len(grades)
-    pass
-
+    averages = {}
+    
+    for student, grades in students.items():
+        average = sum(grades) / len(grades)
+        averages[student] = round(average, 2)
+    
+    return averages
 
 def nested_dict_access(data, keys):
     """
@@ -242,8 +247,15 @@ def nested_dict_access(data, keys):
     # TODO: Implement this function
     # Start with data, then traverse using each key
     # Return None if any key is missing
-    pass
-
+    current = data
+    
+    for key in keys:
+        if isinstance(current, dict) and key in current:
+            current = current[key]
+        else:
+            return None
+    
+    return current
 
 # Test cases
 if __name__ == "__main__":
