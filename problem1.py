@@ -134,15 +134,25 @@ def merge_lists(list1, list2):
     """
     # TODO: Implement this function
     # Hint: Use a loop with index, handle different lengths
-
     merge_liste = []
-    while len(list1) != 0 and len(list2) != 0 : 
-        merge_liste.append(list1[0])
-        merge_liste.append(list2[0])
-        del list1[0]
-        del list2[0]
-
-    return merge_liste 
+    i = 0
+    j = 0
+    
+    while i < len(list1) and j < len(list2):
+        merge_liste.append(list1[i])
+        merge_liste.append(list2[j])
+        i += 1
+        j += 1
+    
+    while i < len(list1):
+        merge_liste.append(list1[i])
+        i += 1
+    
+    while j < len(list2):
+        merge_liste.append(list2[j])
+        j += 1
+    
+    return merge_liste
 
 
 def list_statistics(numbers):
