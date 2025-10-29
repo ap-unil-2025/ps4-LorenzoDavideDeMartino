@@ -23,7 +23,11 @@ def create_contact(name, phone, email=""):
     """
     # TODO: Implement this function
     # Return a dictionary with the contact information
-    pass
+    contact = {"name" : name,
+               "phone" : phone, 
+               "email" : email}
+    
+    return contact 
 
 
 def add_contact(contacts, name, phone, email=""):
@@ -50,9 +54,12 @@ def add_contact(contacts, name, phone, email=""):
     # Steps:
     # 1. Create a contact using create_contact()
     # 2. Add it to the contacts list
-    # 3. Return the contact
-    pass
-
+    # 3. Return tntact
+    contacts = []
+    contacts = contacts + list(contact.items())
+    for i in contacts :
+        print(i)
+    return contacts
 
 def find_contact_by_name(contacts, name):
     """

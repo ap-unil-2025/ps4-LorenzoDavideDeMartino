@@ -2,7 +2,7 @@
 Problem 1: List Operations and Comprehensions
 Practice working with Python lists - creating, modifying, filtering, and transforming them.
 """
-
+import statistics
 
 def create_number_list(start, end):
     """
@@ -21,7 +21,10 @@ def create_number_list(start, end):
     """
     # TODO: Implement this function
     # Hint: Use range() and convert to list
-    pass
+    liste1 = []
+    for i in range(start, end + 1):
+        liste1.append(i)
+    return liste1
 
 
 def filter_even_numbers(numbers):
@@ -40,7 +43,9 @@ def filter_even_numbers(numbers):
     """
     # TODO: Implement this function
     # You can use a loop or list comprehension
-    pass
+    liste2 = []
+    liste2 = list(filter(lambda x: x % 2 == 0, numbers))
+    return liste2
 
 
 def square_numbers(numbers):
@@ -59,7 +64,9 @@ def square_numbers(numbers):
     """
     # TODO: Implement this function
     # Hint: Try a list comprehension!
-    pass
+    liste3 = []
+    liste3 = list(map(lambda x: x**2, numbers))
+    return liste3
 
 
 def find_max_min(numbers):
@@ -78,7 +85,9 @@ def find_max_min(numbers):
     """
     # TODO: Implement this function
     # You can use max() and min() built-in functions
-    pass
+    numbers.sort()
+    tulpe = (numbers[-1], numbers[0]) 
+    return tulpe
 
 
 def remove_duplicates(items):
@@ -98,7 +107,11 @@ def remove_duplicates(items):
     # TODO: Implement this function
     # Hint: You can use a loop and check if item is already in result list
     # Or convert to set and back to list (but this doesn't preserve order)
-    pass
+    no_duplicate = [] 
+    for i in items: 
+        if i not in no_duplicate: 
+            no_duplicate.append(i)
+    return no_duplicate
 
 
 def merge_lists(list1, list2):
@@ -121,7 +134,15 @@ def merge_lists(list1, list2):
     """
     # TODO: Implement this function
     # Hint: Use a loop with index, handle different lengths
-    pass
+
+    merge_liste = []
+    while len(list1) != 0 and len(list2) != 0 : 
+        merge_liste.append(list1[0])
+        merge_liste.append(list2[0])
+        del list1[0]
+        del list2[0]
+
+    return merge_liste 
 
 
 def list_statistics(numbers):
@@ -140,10 +161,13 @@ def list_statistics(numbers):
     """
     if not numbers:
         return None
+    dic_statistics = {}
+    dic_statistics = {'sum': sum(numbers), 'average' : statistics.mean(numbers), 'count': len(numbers), 'max': max(numbers), 'min': min(numbers)}
+
 
     # TODO: Implement this function
     # Calculate and return a dictionary with the statistics
-    pass
+    return dic_statistics
 
 
 def chunk_list(items, chunk_size):
@@ -163,7 +187,12 @@ def chunk_list(items, chunk_size):
     """
     # TODO: Implement this function
     # Hint: Use list slicing in a loop
-    pass
+    new_liste = []
+    for i in range(0, len(items), chunk_size):
+        chiffre = items[i:i+chunk_size]
+        new_liste.append(chiffre)
+
+    return new_liste
 
 
 # Test cases
